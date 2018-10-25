@@ -98,12 +98,6 @@ int Cliente_getApellido(Cliente* this,char* apellido)
     return retorno;
 }
 
-
-#include "Cliente.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 Cliente* Cliente_new()
 {
     Cliente* this;
@@ -120,6 +114,7 @@ Cliente* Cliente_newConParametros(char* idCliente,char* nombre,char* apellido)
 {
     Cliente* this;
     this=Cliente_new();
+    //FALTA VALIDAR
 
     if(
     !Cliente_setIdCliente(this,idCliente)&&

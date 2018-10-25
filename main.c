@@ -27,7 +27,7 @@ int main()
     {
         while(!feof(pArchivo))
         {
-            strcpy(bufferApellido,"-----*-----");
+
             fscanf(pArchivo,"%[^,],%[^,],%[^\n]\n",bufferId,bufferNombre,bufferApellido);
             printf("%s - %s\n",bufferId,bufferApellido);
         }
@@ -40,3 +40,26 @@ int main()
 
     return 0;
 }
+
+Cliente *arrayPunteroCLiente[1024];
+int size=0;
+
+FILE* pArchivoCliente;
+
+char bufferId[1024];
+char bufferNombre[1024];
+char bufferApellido[1024];
+int flagOnce=1;
+
+pArchivoCliente=fopen("data.csv","r");
+
+while(!feof(pArchivoCliente))
+{
+    if(flagOnce)
+    {
+        fscanf(pArchivoCliente,"%s\n",bufferId);
+        flagOnce=0;
+    }
+    printf("%s\n",bufferId);
+}
+fclose(pArchivoCliente);
